@@ -2,11 +2,63 @@
   "products": [
     {
       "id": 1,
-      "name": "Iphone"
+      "name": "Apple AirPods with Wired Charging Case",
+      "price": 248.23,
+      "description": "Automatically on, automatically connected, easy setup for all your Apple devices, quick access to Siri by saying Hey Siri",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/multimedia/wc1200/1029448832.jpg",
+        "https://cdn1.ozone.ru/s3/multimedia-m/wc1200/6001623982.jpg"
+      ]
     },
     {
       "id": 2,
-      "name": "Samsung"
+      "name": "JBL Xtreme 2 - Waterproof Portable Bluetooth Speaker",
+      "price": 349.3,
+      "description": "Wireless Bluetooth streaming, 15 hours of playtime, IPX7 waterproof",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/s3/multimedia-s/wc1200/6007576624.jpg",
+        "https://cdn1.ozone.ru/s3/multimedia-x/wc1200/6007576629.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Xiaomi Mi Band 5 Smart Band Bracelet",
+      "price": 53.9,
+      "description": "Xiaomi Mi Band 5, Bigger Dynamic Color Screen: The screen of Mi Band 5 is increased by 20%, 1.1. AMOLED screen . 100+ watchfaces",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/s3/multimedia-b/wc1200/6017306075.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51xhO6mJppL._AC_SL1500_.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "JBL Tune 750BTNC wireless headphones, red",
+      "price": 112.05,
+      "description": "JBL Tune 750BTNC wireless headphones, red colored",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/s3/multimedia-g/wc1200/6006834904.jpg",
+        "https://cdn1.ozone.ru/s3/multimedia-h/wc1200/6006834905.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Xiaomi Mi Band 5 Smart Band Bracelet",
+      "price": 53.9,
+      "description": "Xiaomi Mi Band 5, Bigger Dynamic Color Screen: The screen of Mi Band 5 is increased by 20%, 1.1. AMOLED screen . 100+ watchfaces",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/s3/multimedia-b/wc1200/6017306075.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51xhO6mJppL._AC_SL1500_.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Xiaomi Mi Band 5 Smart Band Bracelet",
+      "price": 53.9,
+      "description": "Xiaomi Mi Band 5, Bigger Dynamic Color Screen: The screen of Mi Band 5 is increased by 20%, 1.1. AMOLED screen . 100+ watchfaces",
+      "imageUrls": [
+        "https://cdn1.ozone.ru/s3/multimedia-b/wc1200/6017306075.jpg",
+        "https://images-na.ssl-images-amazon.com/images/I/51xhO6mJppL._AC_SL1500_.jpg"
+      ]
     }
   ],
   "users": [

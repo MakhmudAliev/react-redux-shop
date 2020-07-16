@@ -8,7 +8,5 @@ export const fetchProducts = () => (dispatch) => {
         type: FETCH_PRODUCTS,
         payload: products,
       });
-      console.log("in action creator", products);
     });
-  console.log("fetching...");
 };
