@@ -5,7 +5,7 @@ export default function (state = [], action) {
 
   switch (type) {
     case FETCH_PRODUCTS:
-      return [...state, ...payload];
+      return [...payload];
     default:
       return state;
   }

@@ -1,16 +1,21 @@
 import React from "react";
 import Search from "./search";
-import Cart from "./cart";
+import CartButton from "./cartButton";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className={`py-8 flex justify-between`}>
-      <div>Logo</div>
+      <div>
+        <Link to="/">Logo</Link>
+      </div>
       <div>
         <Search />
       </div>
       <div>
-        <Cart />
+        <Link to="/cart">
+          <CartButton />
+        </Link>
       </div>
     </div>
   );

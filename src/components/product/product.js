@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/actions/orderActions";
 
@@ -10,6 +10,12 @@ export const Product = ({
   imageUrls,
   addToCart,
 }) => {
+  const [amount, setAmount] = useState(1);
+
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
+  };
+
   return (
     <div
       className={`flex flex-col justify-between rounded shadow text-center  mb-8 mr-4 w-10/24 sm:w-3/10 md:w-3/10 lg:w-22/100 px-6 py-4`}
@@ -34,14 +40,15 @@ export const Product = ({
             <input
               className={`py-2 px-2 w-10 text-center rounded border`}
               type="text"
-              placeholder="1"
+              value={amount}
+              onChange={handleAmountChange}
             />
           </div>
           <div>
             <button
               className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded`}
               onClick={() =>
-                addToCart({ id, name, price, description, imageUrls })
+                addToCart({ id, name, price, description, imageUrls, amount })
               }
             >
               Buy
