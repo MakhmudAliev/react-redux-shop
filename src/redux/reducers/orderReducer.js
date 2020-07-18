@@ -1,16 +1,5 @@
 import { ADD_TO_CART } from "../constants";
-
-const storeKey = "THIS_STORE_ORDER2";
-
-// Получаем данные из LocalStorage
-const getCartData = () => {
-  return JSON.parse(localStorage.getItem(storeKey));
-};
-// Записываем данные в LocalStorage
-const setCartData = (data) => {
-  localStorage.setItem(storeKey, JSON.stringify(data));
-  return data;
-};
+import { getCartData, setCartData } from "../../utils";
 
 const initialState = getCartData() || [];
 
@@ -19,19 +8,21 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case ADD_TO_CART:
-      if (state.find((item) => item.id === payload.id)) {
-        const newState = state.slice();
+      let itemExists = false;
+      const newState = state.slice();
 
-        newState.forEach((item) => {
-          if (item.id === payload.id) {
-            item.amount = +item.amount + +payload.amount;
-          }
-        });
+      newState.forEach((item) => {
+        if (item.id === payload.id) {
+          item.amount = +item.amount + +payload.amount;
+          itemExists = true;
+        }
+      });
 
-        return setCartData(newState);
-      } else {
-        return setCartData([...state, payload]);
+      if (!itemExists) {
+        newState.push(payload);
       }
+
+      return setCartData(newState);
     default:
       return state;
   }

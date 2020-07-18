@@ -5,14 +5,16 @@ export const Cart = ({ products }) => {
   return (
     <div>
       <div className={`mt-4 mb-8 text-4xl text-gray-8 00`}>Cart</div>
-      {products.map((product) => (
-        <div
-          className={`mb-8 rounded border-solid border-gray-500`}
-          key={product.id}
-        >
-          {product.name} - $ {product.price} - {product.amount || 1}
-        </div>
-      ))}
+      {products.length
+        ? products.map((product) => (
+            <div
+              className={`mb-8 rounded border-solid border-gray-500`}
+              key={product.id}
+            >
+              {product.name} - $ {product.price} - {product.amount || 1}
+            </div>
+          ))
+        : "Cart empty"}
     </div>
   );
 };
