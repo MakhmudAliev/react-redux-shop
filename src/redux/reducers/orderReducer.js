@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from "../constants";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "../constants";
 import { getCartData, setCartData } from "../../utils";
 
 const initialState = getCartData() || [];
@@ -7,7 +7,9 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_TO_CART:
+    case ADD_TO_CART: {
+      console.log("add");
+
       let itemExists = false;
       const newState = state.slice();
 
@@ -23,6 +25,12 @@ export default function (state = initialState, action) {
       }
 
       return setCartData(newState);
+    }
+
+    case REMOVE_FROM_CART: {
+      return setCartData(state.filter((item) => item.id !== payload));
+    }
+
     default:
       return state;
   }
