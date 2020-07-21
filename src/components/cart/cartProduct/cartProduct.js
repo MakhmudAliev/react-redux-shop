@@ -30,7 +30,7 @@ export const CartProduct = ({
         value={amount}
         onChange={handleChange}
       />
-      = {price * amount}
+      = $ {Math.round(price * amount * 100) / 100}
       <button className="ml-4" onClick={() => removeFromCart(id)}>
         <i className="fas fa-times-circle"></i>
       </button>

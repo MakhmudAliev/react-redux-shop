@@ -1,24 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../../redux/actions/orderActions";
+import AddToCart from "./addToCart/addToCart";
 
-export const Product = ({
-  id,
-  name,
-  price,
-  description,
-  imageUrls,
-  addToCart,
-}) => {
-  const [amount, setAmount] = useState(1);
+export const Product = ({ id, name, price, description, imageUrls, order }) => {
+  const [amountInOrder, setAmountInOrder] = useState(0);
 
-  const handleAmountChange = (e) => {
-    if (Number.isInteger(+e.target.value)) {
-      setAmount(e.target.value);
-    } else {
-      return;
+  useEffect(() => {
+    const itemInOrder = order.find((item) => item.id === id);
+    if (itemInOrder !== undefined) {
+      setAmountInOrder(itemInOrder["amount"]);
     }
-  };
+  }, [order, id, amountInOrder]);
 
   return (
     <div
@@ -40,24 +32,17 @@ export const Product = ({
           className={`flex sm:flex-wrap lg:flex-no-wrap items-center justify-center mb-4`}
         >
           <div className={`mr-4 sm:w-full sm:mb-2`}>$ {price}</div>
-          <div className={`mr-2 hidden sm:block`}>
-            <input
-              className={`py-2 px-2 w-10 text-center rounded border`}
-              type="text"
-              value={amount}
-              onChange={handleAmountChange}
+          {amountInOrder ? (
+            <div>in Cart: {amountInOrder}</div>
+          ) : (
+            <AddToCart
+              id={id}
+              name={name}
+              price={price}
+              descriptio={description}
+              imageUrls={imageUrls}
             />
-          </div>
-          <div>
-            <button
-              className={`bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded`}
-              onClick={() =>
-                addToCart({ id, name, price, description, imageUrls, amount })
-              }
-            >
-              Buy
-            </button>
-          </div>
+          )}
         </div>
         <div className={`hidden lg:block text-gray-700 text-sm`}>
           {description}
@@ -67,4 +52,10 @@ export const Product = ({
   );
 };
 
-export default connect(null, { addToCart })(Product);
+const mapStateToProps = (state) => {
+  return {
+    order: state.order,
+  };
+};
+
+export default connect(mapStateToProps)(Product);
