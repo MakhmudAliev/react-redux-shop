@@ -13,7 +13,11 @@ export const Product = ({
   const [amount, setAmount] = useState(1);
 
   const handleAmountChange = (e) => {
-    setAmount(e.target.value);
+    if (Number.isInteger(+e.target.value)) {
+      setAmount(e.target.value);
+    } else {
+      return;
+    }
   };
 
   return (

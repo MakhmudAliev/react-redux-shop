@@ -1,11 +1,36 @@
 import React from "react";
-import { removeFromCart } from "../../../redux/actions/orderActions";
+import {
+  removeFromCart,
+  changeCartAmount,
+} from "../../../redux/actions/orderActions";
 import { connect } from "react-redux";
 
-export const CartProduct = ({ id, name, price, amount, removeFromCart }) => {
+export const CartProduct = ({
+  id,
+  name,
+  price,
+  amount,
+  removeFromCart,
+  changeCartAmount,
+}) => {
+  const handleChange = (e) => {
+    if (Number.isInteger(+e.target.value)) {
+      changeCartAmount({ id, amount: e.target.value });
+    } else {
+      return;
+    }
+  };
+
   return (
     <div key={id} className={`mb-8 rounded border-solid border-gray-500`}>
-      {name} - $ {price} - {amount}
+      {name} - $ {price} *
+      <input
+        type="text"
+        className={`w-8 text-center border mx-2`}
+        value={amount}
+        onChange={handleChange}
+      />
+      = {price * amount}
       <button className="ml-4" onClick={() => removeFromCart(id)}>
         <i className="fas fa-times-circle"></i>
       </button>
@@ -13,4 +38,4 @@ export const CartProduct = ({ id, name, price, amount, removeFromCart }) => {
   );
 };
 
-export default connect(null, { removeFromCart })(CartProduct);
+export default connect(null, { removeFromCart, changeCartAmount })(CartProduct);
