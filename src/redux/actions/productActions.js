@@ -10,3 +10,5 @@ export const fetchProducts = () => (dispatch) => {
       });
     });
 };
+
+// rewrite to async/await ?

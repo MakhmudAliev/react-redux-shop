@@ -23,10 +23,12 @@ export const Cart = ({ products }) => {
           ))
         : "Cart empty"}
 
-      {products.length && (
+      {products.length ? (
         <div>
           <strong>Total</strong>: $ {Math.round(total * 100) / 100}
         </div>
+      ) : (
+        ""
       )}
     </div>
   );
